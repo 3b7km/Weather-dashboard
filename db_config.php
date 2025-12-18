@@ -1,4 +1,9 @@
 <?php
+// Suppress warnings in production to prevent HTML in JSON responses
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+
 //Database Configuration File (Handles API and DB connection)
 // Database Configuration - Support environment variables for production
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
@@ -58,4 +63,3 @@ function setCORSHeaders() {
         exit();
     }
 }
-?>

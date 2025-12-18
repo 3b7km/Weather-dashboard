@@ -15,7 +15,7 @@ try {
         $stmt = $conn->prepare(
             "SELECT id, city_name, country_code, temperature, weather_description, searched_at 
             FROM searches 
-            ORDER BY searched_at asc 
+            ORDER BY searched_at desc
             LIMIT ?"
         );
         
@@ -99,4 +99,3 @@ function getTimeAgo($datetime) {
         return date('M j, Y', $timestamp);
     }
 }
-?>
