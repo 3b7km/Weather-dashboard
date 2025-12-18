@@ -1,14 +1,5 @@
 // API Configuration - Use current domain dynamically
-const API_BASE_URL = (() => {
-    const protocol = window.location.protocol;
-    const host = window.location.host;
-    const pathname = window.location.pathname;
-    
-    // Get the directory path (remove file name if present)
-    let path = pathname.substring(0, pathname.lastIndexOf('/'));
-    
-    return `${protocol}//${host}${path}`;
-})(); 
+const API_BASE_URL = window.location.protocol + '//' + window.location.host + (window.location.pathname.includes('web-project') ? '/web-project' : ''); 
 
 // State Management
 let currentWeatherData = null;
